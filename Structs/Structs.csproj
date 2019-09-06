@@ -11,7 +11,7 @@
     <Description>.NET Core Utility Structs for MonoGame</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>MoonTools.Core.Structs</AssemblyName>
-    <PackageProjectUrl>https://github.com/moonside-games/MoonTools.Core.Structs</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/MoonsideGames/MoonTools.Core.Structs</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
   <ItemGroup>
