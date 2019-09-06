@@ -26,7 +26,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: dotnet nuget push ./Structs/bin/Release/MoonTools.Core.Structs.*.nupkg -k $API_KEY -s $NUGET_SOURCE
+      - run: dotnet nuget push ./Structs/bin/Release/MoonTools.Core.Structs.*.nupkg -k $API_KEY -s https://api.nuget.org/v3/index.json
 
 workflows:
   version: 2
