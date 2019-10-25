@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>MoonTools.Core.Structs</RootNamespace>
     <PackageId>MoonTools.Core.Structs</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>Evan Hemsley</Authors>
     <Company>Moonside Games</Company>
     <Product>MoonTools Core Structs</Product>
