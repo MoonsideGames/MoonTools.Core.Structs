@@ -58,13 +58,16 @@ namespace MoonTools.Core.Structs
             }
         }
 
-        public static Transform2D DefaultTransform {
-            get {
+        public static Transform2D DefaultTransform
+        {
+            get
+            {
                 return _defaultTransform;
             }
         }
 
-        public Transform2D(Position2D position) {
+        public Transform2D(Position2D position)
+        {
             _position = position;
             _rotation = 0f;
             _scale = new Vector2(1, 1);
@@ -79,7 +82,8 @@ namespace MoonTools.Core.Structs
             TransformMatrix = CreateTransformMatrix(_position, _rotation, _scale);
         }
 
-        public Transform2D(Position2D position, float rotation) {
+        public Transform2D(Position2D position, float rotation)
+        {
             _position = position;
             _rotation = rotation;
             _scale = new Vector2(1, 1);
@@ -94,27 +98,25 @@ namespace MoonTools.Core.Structs
             TransformMatrix = CreateTransformMatrix(_position, _rotation, _scale);
         }
 
-        public Transform2D(Position2D position, float rotation, Vector2 scale) {
+        public Transform2D(Position2D position, float rotation, Vector2 scale)
+        {
             _position = position;
             _rotation = rotation;
             _scale = scale;
             TransformMatrix = CreateTransformMatrix(_position, _rotation, _scale);
         }
 
-        public Transform2D(Vector2 position, float rotation, Vector2 scale) {
+        public Transform2D(Vector2 position, float rotation, Vector2 scale)
+        {
             _position = new Position2D(position.X, position.Y);
             _rotation = rotation;
             _scale = scale;
             TransformMatrix = CreateTransformMatrix(_position, _rotation, _scale);
         }
 
-        public Transform2D Compose(Transform2D other) {
-            return new Transform2D(Position + other.Position, Rotation + other.Rotation, Scale * other.Scale);
-        }
-
-        public bool Equals(Transform2D other)
+        public Transform2D Compose(Transform2D other)
         {
-            return TransformMatrix == other.TransformMatrix;
+            return new Transform2D(Position + other.Position, Rotation + other.Rotation, Scale * other.Scale);
         }
 
         private static Matrix CreateTransformMatrix(Position2D translation, float rotationDegrees, Vector2 scale)
@@ -122,6 +124,36 @@ namespace MoonTools.Core.Structs
             return Matrix.CreateScale(scale.X, scale.Y, 1) *
                 Matrix.CreateRotationZ(Microsoft.Xna.Framework.MathHelper.ToRadians(rotationDegrees)) *
                 Matrix.CreateTranslation(translation.X, translation.Y, 0);
+        }
+
+        public override bool Equals(Object other)
+        {
+            if (other is Transform2D otherTransform)
+            {
+                return Equals(otherTransform);
+            }
+
+            return false;
+        }
+
+        public bool Equals(Transform2D other)
+        {
+            return TransformMatrix == other.TransformMatrix;
+        }
+
+        public override int GetHashCode()
+        {
+            return TransformMatrix.GetHashCode();
+        }
+
+        public static bool operator ==(Transform2D a, Transform2D b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Transform2D a, Transform2D b)
+        {
+            return !(a == b);
         }
     }
 }

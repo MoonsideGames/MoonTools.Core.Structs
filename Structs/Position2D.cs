@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MoonTools.Core.Structs
 {
-    public struct Position2D
+    public struct Position2D : System.IEquatable<Position2D>
     {
         private Vector2 remainder;
 
@@ -145,6 +145,38 @@ namespace MoonTools.Core.Structs
         private static int Floor(float value)
         {
             return (int)Math.Floor(value);
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other is Position2D otherPosition)
+            {
+                return Equals(otherPosition);
+            }
+
+            return false;
+        }
+
+        public bool Equals(Position2D other)
+        {
+            return
+                X == other.X &&
+                Y == other.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return X.GetHashCode() ^ Y.GetHashCode();
+        }
+
+        public static bool operator ==(Position2D a, Position2D b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Position2D a, Position2D b)
+        {
+            return !(a == b);
         }
     }
 }

@@ -61,5 +61,41 @@ namespace Tests
             result.X.Should().BeApproximately(1.2f, 0.01f);
             result.Y.Should().BeApproximately(6.4f, 0.01f);
         }
+
+        [Test]
+        public void Equals()
+        {
+            var one = new Position2D(5.2f, 4.7f);
+            var two = new Position2D(5.1f, 4.4f);
+
+            one.Equals(two).Should().BeTrue();
+        }
+
+        [Test]
+        public void EqualsOperator()
+        {
+            var one = new Position2D(5.2f, 4.7f);
+            var two = new Position2D(5.1f, 4.4f);
+
+            (one == two).Should().BeTrue();
+        }
+
+        [Test]
+        public void NotEquals()
+        {
+            var one = new Position2D(5.2f, 4.7f);
+            var two = new Position2D(3.1f, 2.4f);
+
+            one.Equals(two).Should().BeFalse();
+        }
+
+        [Test]
+        public void NotEqualsOperator()
+        {
+            var one = new Position2D(5.2f, 4.7f);
+            var two = new Position2D(3.1f, 2.4f);
+
+            (one != two).Should().BeTrue();
+        }
     }
 }

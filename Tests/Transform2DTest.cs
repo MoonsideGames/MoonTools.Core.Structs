@@ -26,6 +26,24 @@ namespace Tests
         }
 
         [Test]
+        public void EqualsOperator()
+        {
+            var transformA = new Transform2D(new Position2D(0, 1), 4f, new Vector2(2, 1));
+            var transformB = new Transform2D(new Position2D(0, 1), 4f, new Vector2(2, 1));
+
+            (transformA == transformB).Should().BeTrue();
+        }
+
+        [Test]
+        public void NotEqualsOperator()
+        {
+            var transformA = new Transform2D(new Position2D(2, 3));
+            var transformB = new Transform2D(new Position2D(5, 1));
+
+            (transformA != transformB).Should().BeTrue();
+        }
+
+        [Test]
         public void Compose()
         {
             var transformA = new Transform2D(new Position2D(4, 1), 5f, new Vector2(3, 1));
