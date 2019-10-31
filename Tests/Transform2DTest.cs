@@ -47,10 +47,10 @@ namespace Tests
         [Test]
         public void Compose()
         {
-            var transformA = new Transform2D(new Position2D(4, 1), 5f, new Vector2(3, 1));
-            var transformB = new Transform2D(new Position2D(15, 2), 12f, new Vector2(1, 2));
+            var transformA = new Transform2D(new Position2D(4, 1), (float)System.Math.PI / 2, new Vector2(3, 1));
+            var transformB = new Transform2D(new Position2D(15, 2), (float)System.Math.PI / 4, new Vector2(1, 2));
 
-            transformA.Compose(transformB).Should().BeEquivalentTo(new Transform2D(new Position2D(19, 3), 17f, new Vector2(3, 2)));
+            transformA.Compose(transformB).Should().BeEquivalentTo(new Transform2D(new Position2D(19, 3), 3 * (float)System.Math.PI / 4, new Vector2(3, 2)));
         }
     }
 }
