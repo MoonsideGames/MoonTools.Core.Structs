@@ -1,5 +1,5 @@
 using System;
-using Microsoft.Xna.Framework;
+using System.Numerics;
 
 namespace MoonTools.Core.Structs
 {
@@ -16,7 +16,7 @@ namespace MoonTools.Core.Structs
         private float _rotation;
         private Vector2 _scale;
 
-        public Matrix TransformMatrix { get; private set; }
+        public Matrix4x4 TransformMatrix { get; private set; }
 
         public Position2D Position
         {
@@ -119,11 +119,11 @@ namespace MoonTools.Core.Structs
             return new Transform2D(Position + other.Position, Rotation + other.Rotation, Scale * other.Scale);
         }
 
-        private static Matrix CreateTransformMatrix(Position2D translation, float rotationDegrees, Vector2 scale)
+        private static Matrix4x4 CreateTransformMatrix(Position2D translation, float rotation, Vector2 scale)
         {
-            return Matrix.CreateScale(scale.X, scale.Y, 1) *
-                Matrix.CreateRotationZ(Microsoft.Xna.Framework.MathHelper.ToRadians(rotationDegrees)) *
-                Matrix.CreateTranslation(translation.X, translation.Y, 0);
+            return Matrix4x4.CreateScale(scale.X, scale.Y, 1) *
+                Matrix4x4.CreateRotationZ(rotation) *
+                Matrix4x4.CreateTranslation(translation.X, translation.Y, 0);
         }
 
         public override bool Equals(Object other)

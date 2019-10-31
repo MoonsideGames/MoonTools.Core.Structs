@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>MoonTools.Core.Structs</RootNamespace>
     <PackageId>MoonTools.Core.Structs</PackageId>
     <Version>1.1.0</Version>
@@ -14,7 +14,4 @@
     <PackageProjectUrl>https://github.com/MoonsideGames/MoonTools.Core.Structs</PackageProjectUrl>
     <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.7.0.7" />
-  </ItemGroup>
 </Project>
