@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace MoonTools.Core.Structs
 {
-    public struct Position2D : System.IEquatable<Position2D>
+    public struct Position2D : IEquatable<Position2D>
     {
         private Vector2 remainder;
 
