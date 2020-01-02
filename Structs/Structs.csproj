@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>MoonTools.Core.Structs</RootNamespace>
     <PackageId>MoonTools.Core.Structs</PackageId>
-    <Version>2.1.0</Version>
+    <Version>3.0.0</Version>
     <Authors>Evan Hemsley</Authors>
     <Company>Moonside Games</Company>
     <Product>MoonTools Core Structs</Product>
-    <Copyright>Evan Hemsley 2019</Copyright>
+    <Copyright>Evan Hemsley 2020</Copyright>
     <Description>.NET Core Utility Structs for MonoGame</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyName>MoonTools.Core.Structs</AssemblyName>
