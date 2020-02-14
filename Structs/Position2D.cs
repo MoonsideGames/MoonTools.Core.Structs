@@ -38,8 +38,8 @@ namespace MoonTools.Core.Structs
 
         public Position2D(float X, float Y)
         {
-            _x = Floor(X);
-            _y = Floor(Y);
+            _x = Truncate(X);
+            _y = Truncate(Y);
             remainder = new Vector2(Remainder(X), Remainder(Y));
         }
 
@@ -145,6 +145,11 @@ namespace MoonTools.Core.Structs
         private static int Floor(float value)
         {
             return (int)Math.Floor(value);
+        }
+
+        private static int Truncate(float value)
+        {
+            return (int)Math.Truncate(value);
         }
 
         public override bool Equals(object other)

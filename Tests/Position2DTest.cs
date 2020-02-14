@@ -9,6 +9,17 @@ namespace Tests
     public class Position2DTest
     {
         [Test]
+        public void Negatives()
+        {
+            var position = new Position2D(-3.6f, -4.2f);
+
+            position.X.Should().Be(-3);
+            position.Y.Should().Be(-4);
+            position.ToVector2().X.Should().Be(-3.6f);
+            position.ToVector2().Y.Should().Be(-4.2f);
+        }
+
+        [Test]
         public void PositionVectorAddition()
         {
             var one = new Position2D(1.3f, 3.5f);
